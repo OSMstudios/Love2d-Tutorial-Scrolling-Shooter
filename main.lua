@@ -87,7 +87,6 @@ function love.update(dt)
 	-- Since there will be fewer enemies on screen than bullets we'll loop them first
 	-- Also, we need to see if the enemies hit our player
 	for i, enemy in ipairs(enemies) do
-
 		for j, bullet in ipairs(bullets) do
 			if CheckCollision(enemy.x, enemy.y, enemy.img:getWidth(), enemy.img:getHeight(), bullet.x, bullet.y, bullet.img:getWidth(), bullet.img:getHeight()) then
 				table.remove(bullets, j)
@@ -99,7 +98,6 @@ function love.update(dt)
 		if CheckCollision(enemy.x, enemy.y, enemy.img:getWidth(), enemy.img:getHeight(), player.x, player.y, player.img:getWidth(), player.img:getHeight()) 
 		and isAlive then
 			table.remove(enemies, i)
-			score = 0
 			isAlive = false
 		end
 	end
@@ -158,7 +156,7 @@ function love.draw(dt)
 	if isAlive then
 		love.graphics.draw(player.img, player.x, player.y)
 	else
-		love.graphics.print("Press 'R' to restart", love.graphics:getWidth()/2, love.graphics:getHeight()/2)
+		love.graphics.print("Press 'R' to restart", love.graphics:getWidth()/2-50, love.graphics:getHeight()/2-10)
 	end
 
 	if debug then
