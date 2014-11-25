@@ -9,7 +9,7 @@ createEnemyTimerMax = 0.4
 createEnemyTimer = createEnemyTimerMax
 
 -- Player Object
-player = { x = 50, y = 710, speed = 150, img = nil }
+player = { x = 200, y = 710, speed = 150, img = nil }
 isAlive = true
 score  = 0
 
@@ -18,7 +18,7 @@ bulletImg = nil
 enemyImg = nil
 
 -- Entity Storage
-bullets = {} -- array of current bullets being drawn
+bullets = {} -- array of current bullets being drawn and updated
 enemies = {} -- array of current enemies on screen
 
 -- Collision detection taken function from http://love2d.org/wiki/BoundingBox.lua
