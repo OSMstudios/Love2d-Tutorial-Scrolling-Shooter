@@ -42,6 +42,14 @@ function love.update(dt)
 		end
 	end
 
+	if love.keyboard.isDown(' ', 'rctrl', 'lctrl', 'ctrl') and canShoot then
+		-- Create some bullets
+		newBullet = { x = player.x + (player.img:getWidth()/2), y = player.y, img = bulletImg }
+		table.insert(bullets, newBullet)
+		canShoot = false
+		canShootTimer = canShootTimerMax
+	end
+
 	if love.keyboard.isDown('left','a') then
 		if player.x > 0 then -- binds us to the map
 			player.x = player.x - (player.speed*dt)
@@ -55,5 +63,9 @@ end
 
 -- Drawing
 function love.draw(dt)
+	for i, bullet in ipairs(bullets) do
+		love.graphics.draw(bullet.img, bullet.x, bullet.y)
+	end
+
 	love.graphics.draw(player.img, player.x, player.y)
 end
