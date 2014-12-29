@@ -78,7 +78,7 @@ function love.update(dt)
 	for i, enemy in ipairs(enemies) do
 		enemy.y = enemy.y + (200 * dt)
 
-		if enemy.y > 850 then -- remove enemies when they pass off the screen1
+		if enemy.y > 850 then -- remove enemies when they pass off the screen
 			table.remove(enemies, i)
 		end
 	end
