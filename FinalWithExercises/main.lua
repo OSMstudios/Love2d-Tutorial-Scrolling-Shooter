@@ -63,7 +63,7 @@ function love.update(dt)
 		createEnemyTimer = createEnemyTimerMax
 
 		-- Create an enemy
-		randomNumber = math.random(10, love.graphics.getWidth() - 10)
+		randomNumber = math.random(10, love.graphics.getWidth() - 110)
 		newEnemy = { x = randomNumber, y = -10, img = enemyImg }
 		table.insert(enemies, newEnemy)
 	end
@@ -128,7 +128,7 @@ function love.update(dt)
 		end
 	end
 
-	if love.keyboard.isDown(' ', 'rctrl', 'lctrl', 'ctrl') and canShoot then
+	if love.keyboard.isDown('space', 'rctrl', 'lctrl') and canShoot then
 		-- Create some bullets
 		newBullet = { x = player.x + (player.img:getWidth()/2), y = player.y, img = bulletImg }
 		table.insert(bullets, newBullet)
